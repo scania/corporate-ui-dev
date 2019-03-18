@@ -8,6 +8,7 @@ script:
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
   - "echo $AWS_KEY_ID"
+  - "echo $TRAVIS_TAG"
 
 deploy:
   provider: s3
