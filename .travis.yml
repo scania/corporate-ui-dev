@@ -7,7 +7,6 @@ script:
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
-  - "echo $AWS_KEY_ID"
   - "echo $TRAVIS_TAG"
 
 deploy:
