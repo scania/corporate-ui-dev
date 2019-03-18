@@ -16,11 +16,12 @@ deploy:
   bucket: "corporate-ui-deploy-test"
   region: "eu-west-1"
   local_dir: "dist"
-  upload_dir: "build/global/$TRAVIS_BRANCH"
+  upload_dir: "mmexvr-fork/$TRAVIS_BRANCH"
   skip_cleanup: true
   acl: public_read
   on:
     branch: $TRAVIS_BRANCH
+    tags: true
 
 # deploy:
 #   provider: npm
