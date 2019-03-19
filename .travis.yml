@@ -21,7 +21,7 @@ deploy:
   acl: public_read
   on:
     branches: 
-      only: $TRAVIS_BRANCH
+      only: /^deploy-.*$/
 
 # deploy:
 #   provider: npm
