@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "8"
   
-before_script:
+before_install:
   branches: 
       only: /^deploy-.*$/
   
@@ -28,7 +28,7 @@ deploy:
   skip_cleanup: true
   acl: public_read
   on:
-    branches: $TRAVIS_BRANC
+    branches: $TRAVIS_BRANCH
 
 # deploy:
 #   provider: npm
