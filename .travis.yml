@@ -14,10 +14,6 @@ script:
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
   
-before_deploy:
-  branches: 
-      only: /^deploy-.*$/
-
 deploy:
   provider: s3
   access_key_id: "$AWS_KEY_ID"
