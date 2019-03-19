@@ -4,7 +4,9 @@ node_js:
   
 before_install:
   branches: 
-      only: /^deploy-.*$/
+      only: 
+      - /^deploy-.*$/
+      - master
   
 script:
   - "npm i"
