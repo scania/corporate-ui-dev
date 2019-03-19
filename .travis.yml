@@ -11,7 +11,7 @@ script:
 
 deploy:
   provider: s3
-  if: branch = "master"
+  if: branch = "mafdsafdsaster"
   access_key_id: "$AWS_KEY_ID"
   secret_access_key: "$AWS_KEY_SECRET"
   bucket: "corporate-ui-deploy-test"
