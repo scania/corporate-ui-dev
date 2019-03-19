@@ -21,7 +21,8 @@ deploy:
   skip_cleanup: true
   acl: public_read
   on:
-    branch: $TRAVIS_BRANCH
+    branches: 
+      only: $TRAVIS_BRANCH
 
 # deploy:
 #   provider: npm
