@@ -2,16 +2,16 @@ language: node_js
 node_js:
   - "8"
   
-branches:
-except:
-  - master
-
 script:
   - "npm i"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
+  
+before_deploy:
+  branches: 
+      only: /^deploy-.*$/
 
 deploy:
   provider: s3
@@ -24,8 +24,7 @@ deploy:
   skip_cleanup: true
   acl: public_read
   on:
-    branches: 
-      only: /^deploy-.*$/
+    branches: $TRAVIS_BRANC
 
 # deploy:
 #   provider: npm
