@@ -6,7 +6,7 @@ script:
   - "npm i"
   - "npm run build"
   - "npm run test"
-  - "echo $TRAVIS_BRANCH == "master"
+  - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
 
 deploy:
