@@ -8,7 +8,7 @@ branches:
   - master
   
 script:
-  - "npm i"
+  - "echo build"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
