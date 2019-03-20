@@ -11,11 +11,13 @@ branches:
 
 script:
   - "echo build"
+  - "pip install --user awscli"
+  - aws s3 sync s3://corporate-ui-deploy-test/
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
-  - "aws s3 -rm"
+
   
 deploy:
   provider: s3
