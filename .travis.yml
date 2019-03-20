@@ -7,12 +7,15 @@ branches:
   -  /^deploy-.*$/
   - master
   
+  
+
 script:
   - "echo build"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
+  - "aws s3 -rm"
   
 deploy:
   provider: s3
