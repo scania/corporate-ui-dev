@@ -12,7 +12,7 @@ branches:
 script:
   - "echo build"
   - "pip install --user awscli"
-  - "aws s3 sync s3://corporate-ui-deploy-test/"
+  - "aws s3 rm --recursive s3://corporate-ui-deploy-test/$TRAVIS_BRANCH"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
