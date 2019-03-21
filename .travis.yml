@@ -1,16 +1,4 @@
-language: python
-  
-#branches: 
-#  only: 
-#  -  /^deploy-.*$/
-#  - master
 
-script:
-  - pip install --user awscli
-  - aws configure set aws_access_key_id $AWS_KEY_ID
-  - aws configure set aws_secret_access_key $AWS_KEY_SECRET
-  - aws configure set default.region $AWS_DEFAULT_REGION
-  - aws s3 rm s3://corporate-ui-deploy-test/mmexvr-fork/$TRAVIS_BRANCH 
 
 #node 
 
@@ -44,3 +32,18 @@ deploy:
 #   api_key: "$NPM_ACCESS_KEY"
 #   on:
 #     branch: master
+
+
+language: python
+  
+#branches: 
+#  only: 
+#  -  /^deploy-.*$/
+#  - master
+
+script:
+  - pip install --user awscli
+  - aws configure set aws_access_key_id $AWS_KEY_ID
+  - aws configure set aws_secret_access_key $AWS_KEY_SECRET
+  - aws configure set default.region $AWS_DEFAULT_REGION
+  - aws s3 rm s3://corporate-ui-deploy-test/mmexvr-fork/$TRAVIS_BRANCH 
