@@ -12,7 +12,7 @@ branches:
 
 script:
   - "echo build"
-  - "pip install --upgrade pip"
+  - "pip install -U pip"
   - "pip install --user awscli"
   - "aws configure set aws_access_key_id $AWS_KEY_ID"
   - "aws configure set aws_secret_access_key $AWS_KEY_SECRET"
