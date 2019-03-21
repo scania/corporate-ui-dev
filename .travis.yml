@@ -13,6 +13,7 @@ branches:
 script:
   - "echo build"
   - "pip install --user awscli"
+  - "aws s3 rm s3://corporate-ui-deploy-test/mmexvr-fork/$TRAVIS_BRANCH"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
