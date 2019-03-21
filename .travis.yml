@@ -36,6 +36,7 @@ deploy:
 
 language: python
  python: 
+  - "3.3"
   - "3.6"
   
 #branches: 
