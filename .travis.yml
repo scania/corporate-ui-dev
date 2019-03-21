@@ -1,6 +1,6 @@
-language: node_js
-node_js:
-  - "8"
+language: python
+python: 
+  - "3.6"
   
 branches: 
   only: 
@@ -8,21 +8,27 @@ branches:
   - master
   
 before_install:
-- pip install --upgrade pip
 - pip install --user awscli
 
 script:
-  - "echo build"
   - "aws configure set aws_access_key_id $AWS_KEY_ID"
   - "aws configure set aws_secret_access_key $AWS_KEY_SECRET"
   - "aws configure set default.region $AWS_DEFAULT_REGION"
-  - "aws s3 rm s3://corporate-ui-deploy-test/mmexvr-fork/$TRAVIS_BRANCH"
+  - "aws s3 rm s3://corporate-ui-deploy-test/mmexvr-fork/$TRAVIS_BRANCH 
+
+#node 
+
+language: node_js
+node_js:
+  - "8"
+  
+script:
+  - "echo build"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
-  - "echo $TRAVIS_TAG"
+  - "echo $TRAVIS_TAG"  
 
-  
 deploy:
   provider: s3
   access_key_id: "$AWS_KEY_ID"
