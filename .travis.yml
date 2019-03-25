@@ -2,21 +2,22 @@ language: python
 python:
   - "3.6"
 
-#branches: 
-#  only: 
-#  -  /^deploy-.*$/
-#  - master
- 
-before_install:
-- pip install --upgrade pip
+#whitelist branch
+branches: 
+ only: 
+ -  /^deploy-.*$/
+ - master
 
+#python for aws cli
 install:
+- pip install --upgrade pip
 - pip install awscli
 - aws configure set aws_access_key_id $AWS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_KEY_SECRET
 - aws configure set default.region $AWS_DEFAULT_REGION
 - aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/master/
-  
+
+#Npm setup for building dist
 script:
   - "echo build"
   - "npm i"
@@ -25,6 +26,7 @@ script:
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
 
+#deploy for S3 on AWS
 deploy:
   provider: s3
   access_key_id: "$AWS_KEY_ID"
