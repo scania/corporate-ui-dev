@@ -19,6 +19,7 @@ install:
   
 script:
   - "echo build"
+  - "npm i"
   - "npm run build"
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
