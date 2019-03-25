@@ -16,7 +16,7 @@ install:
 - aws configure set aws_access_key_id $AWS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_KEY_SECRET
 - aws configure set default.region $AWS_DEFAULT_REGION
-- aws s3 rm --recursive s3://corporate-ui-deploy-test/build/branch/$TRAVIS_BRANCH
+- aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/build/global/branch/$TRAVIS_BRANCH
 
 #Npm setup for building dist
 script:
@@ -35,15 +35,8 @@ deploy:
   bucket: "corporate-ui-deploy-test"
   region: "eu-west-1"
   local_dir: "dist"
-  upload_dir: "/build/branch/$TRAVIS_BRANCH"
+  upload_dir: "mmexvr-fork/build/global/branch/$TRAVIS_BRANCH"
   skip_cleanup: true
   acl: public_read
   on:
     branch: $TRAVIS_BRANCH
-
-# deploy:
-#   provider: npm
-#   email: "andreas.wikstrom@scania.com"
-#   api_key: "$NPM_ACCESS_KEY"
-#   on:
-#     branch: master
