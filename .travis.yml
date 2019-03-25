@@ -1,5 +1,5 @@
 language: python
-node_js:
+python:
   - "3.6"
 
 #branches: 
