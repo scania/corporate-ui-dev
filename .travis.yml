@@ -29,7 +29,7 @@ before_deploy:
 - aws configure set default.region $AWS_DEFAULT_REGION
 - if [ $TRAVIS_TAG != "false"]; then
   - aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/build/global/branch/$TRAVIS_BRANCH
-fi
+- fi
   
 #deploy for S3 on AWS
 deploy:
