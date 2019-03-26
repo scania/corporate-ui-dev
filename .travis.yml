@@ -41,7 +41,7 @@ deploy:
     acl: public_read
     on:
       branch: $TRAVIS_BRANCH
-      condition: $TRAVIS_TAG = false
+      condition: $TRAVIS_TAG == false
   
   - provider: s3
     access_key_id: "$AWS_KEY_ID"
@@ -54,4 +54,4 @@ deploy:
     acl: public_read
     on:
       branch: $TRAVIS_BRANCH
-      condition: $TRAVIS_TAG = true
+      condition: $TRAVIS_TAG == true
