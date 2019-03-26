@@ -26,7 +26,6 @@ before_deploy:
 - aws configure set aws_access_key_id $AWS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_KEY_SECRET
 - aws configure set default.region $AWS_DEFAULT_REGION
-- aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/build/global/branch/$TRAVIS_BRANCH
 
   
 #deploy for S3 on AWS
@@ -34,6 +33,8 @@ deploy:
   - provider: s3
     access_key_id: "$AWS_KEY_ID"
     secret_access_key: "$AWS_KEY_SECRET"
+    script: 
+      - aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/build/global/branch/$TRAVIS_BRANCH
     bucket: "corporate-ui-deploy-test"
     region: "eu-west-1"
     local_dir: "dist"
