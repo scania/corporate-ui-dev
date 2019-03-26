@@ -50,9 +50,9 @@ deploy:
     bucket: "corporate-ui-deploy-test"
     region: "eu-west-1"
     local_dir: "dist"
-    upload_dir: "mmexvr-fork/build/global/releases/$TRAVIS_BRANCH"
+    upload_dir: "mmexvr-fork/build/global/releases/$TRAVIS_TAG"
     skip_cleanup: true
     acl: public_read
     on:
-      branch: $TRAVIS_BRANCH
-      #condition: $TRAVIS_TAG == true
+      branch: $TRAVIS_TAG
+      condition: $TRAVIS_TAG == true
