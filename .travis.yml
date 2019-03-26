@@ -27,17 +27,31 @@ script:
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_TAG"
-
+  
 #deploy for S3 on AWS
 deploy:
-  provider: s3
-  access_key_id: "$AWS_KEY_ID"
-  secret_access_key: "$AWS_KEY_SECRET"
-  bucket: "corporate-ui-deploy-test"
-  region: "eu-west-1"
-  local_dir: "dist"
-  upload_dir: "mmexvr-fork/build/global/branch/$TRAVIS_BRANCH"
-  skip_cleanup: true
-  acl: public_read
-  on:
-    branch: $TRAVIS_BRANCH
+  - provider: s3
+    access_key_id: "$AWS_KEY_ID"
+    secret_access_key: "$AWS_KEY_SECRET"
+    bucket: "corporate-ui-deploy-test"
+    region: "eu-west-1"
+    local_dir: "dist"
+    upload_dir: "mmexvr-fork/build/global/branch/$TRAVIS_BRANCH"
+    skip_cleanup: true
+    acl: public_read
+    on:
+      branch: $TRAVIS_BRANCH
+      condition: $TRAVIS_TAG = false
+  
+  - provider: s3
+    access_key_id: "$AWS_KEY_ID"
+    secret_access_key: "$AWS_KEY_SECRET"
+    bucket: "corporate-ui-deploy-test"
+    region: "eu-west-1"
+    local_dir: "dist"
+    upload_dir: "mmexvr-fork/build/global/releases/$TRAVIS_BRANCH"
+    skip_cleanup: true
+    acl: public_read
+    on:
+      branch: $TRAVIS_BRANCH
+      condition: $TRAVIS_TAG = true
