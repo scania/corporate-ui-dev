@@ -47,7 +47,6 @@ deploy:
     on:
       branch: $TRAVIS_BRANCH
       tags: false
-      #condition: $TRAVIS_TAG == false
 
   - provider: s3
     access_key_id: "$AWS_KEY_ID"
@@ -61,4 +60,3 @@ deploy:
     on:
       branch: $TRAVIS_TAG
       tags: true
-  
