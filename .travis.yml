@@ -17,7 +17,7 @@ script:
   - "npm run test"
   - "echo $TRAVIS_BRANCH"
 #   - "echo $TRAVIS_PULL_REQUEST"
-  - "echo $TRAVIS_TAG"
+  - "echo $TRAVIS_TAG = false"
   
 #python for aws cli
 #Removing the current folder
@@ -28,7 +28,7 @@ before_deploy:
 - aws configure set aws_secret_access_key $AWS_KEY_SECRET
 - aws configure set default.region $AWS_DEFAULT_REGION
 - |
-  if [ $TRAVIS_TAG ! "false" ]; then
+  if [ $TRAVIS_TAG = "false" ]; then
     aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/build/global/branch/$TRAVIS_BRANCH
   fi
  
