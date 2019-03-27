@@ -12,12 +12,13 @@ branches:
 #Npm setup for building dist
 script:
   - "echo building $TRAVIS_BRANCH"
+  - "echo $TRAVIS_BRANCH"
+  - "echo $TRAVIS_PULL_REQUEST"
+  - "echo $TRAVIS_COMMIT"
+  - "echo $TRAVIS_TAG"
   - "npm i"
   - "npm run build"
   - "npm run test"
-  - "echo $TRAVIS_BRANCH != false"
-  - "echo $TRAVIS_PULL_REQUEST"
-  - "echo $TRAVIS_TAG != false"
   
 #python for aws cli
 #Removing the current folder
