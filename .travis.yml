@@ -12,9 +12,9 @@ branches:
 
 #Npm setup for building dist
 script:
-  - "echo building $TRAVIS_BRANCH"
+  - "echo Building $TRAVIS_BRANCH with commit# $TRAVIS_COMMIT"
   - "echo $TRAVIS_BRANCH"
-  - "echo TRAVIS_BUILD_ID"
+  - "echo $TRAVIS_BUILD_ID"
   - "echo $TRAVIS_EVENT_TYPE"
   - "echo $TRAVIS_PULL_REQUEST"
   - "echo $TRAVIS_COMMIT"
