@@ -16,7 +16,7 @@ script:
   - "echo $TRAVIS_BRANCH"
   - "echo $TRAVIS_PULL_REQUEST"
   - "echo $TRAVIS_COMMIT"
-  - "echo $TRAVIS_TAG"
+  - "echo $TRAVIS_TAG IS BLANK"
   - "npm i"
   - "npm run build"
   - "npm run test"
