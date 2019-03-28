@@ -9,15 +9,18 @@ branches:
  only: 
  -  /^deploy-.*$/
  - master
-
-# NPM setup for building dist
-script:
+ 
+before_script:
   - "echo Build ID# $TRAVIS_BUILD_ID Branch-Name: $TRAVIS_BRANCH"
   - "echo Commit#: $TRAVIS_COMMIT"
   - "echo Commit-message: $TRAVIS_COMMIT_MESSAGE"
   - "echo Tag-name: $TRAVIS_TAG If it exist"
+
+# NPM setup for building dist
+script:
   - "npm i"
   - "npm run build"
+  - "echo Testing"
   - "npm run test"
   
 # Removing the current folder uploaded 
