@@ -14,9 +14,11 @@ branches:
 script:
   - "echo building $TRAVIS_BRANCH"
   - "echo $TRAVIS_BRANCH"
+  - "echo TRAVIS_BUILD_ID"
+  - "echo $TRAVIS_EVENT_TYPE"
   - "echo $TRAVIS_PULL_REQUEST"
   - "echo $TRAVIS_COMMIT"
-  - "echo $TRAVIS_TAG == true"
+  - "echo $TRAVIS_TAG"
   - "npm i"
   - "npm run build"
   - "npm run test"
@@ -25,7 +27,7 @@ script:
 before_deploy:
 # - pip install --upgrade pip
 - |
-  if ["${TRAVIS_TAG}" == "BLANK"] ; then
+  if [ "${TRAVIS_TAG}" == "BLANK" ] ; then
     pip install awscli
     aws configure set aws_access_key_id $AWS_KEY_ID
     aws configure set aws_secret_access_key $AWS_KEY_SECRET
