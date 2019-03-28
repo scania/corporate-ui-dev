@@ -25,7 +25,7 @@ script:
 before_deploy:
 # - pip install --upgrade pip
 - |
-  if ![-z "${TRAVIS_TAG}"] ; then
+  if [-z "${TRAVIS_TAG}"] ; then
     pip install awscli
     aws configure set aws_access_key_id $AWS_KEY_ID
     aws configure set aws_secret_access_key $AWS_KEY_SECRET
