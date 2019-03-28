@@ -1,29 +1,28 @@
-#Xenial version for upgraded Pip
+#Xenial for upgraded pip -v
 dist: xenial
 language: python
 python:
   - "3.6"
 
-#whitelist branch
+# Whitelist branch
 branches: 
  only: 
  -  /^deploy-.*$/
  - master
 
-#Npm setup for building dist
+# NPM setup for building dist
 script:
-  - "echo Building $TRAVIS_BRANCH with commit# $TRAVIS_COMMIT"
-  - "echo $TRAVIS_BRANCH"
-  - "echo $TRAVIS_BUILD_ID"
-  - "echo $TRAVIS_EVENT_TYPE"
-  - "echo $TRAVIS_PULL_REQUEST"
-  - "echo $TRAVIS_COMMIT"
-  - "echo $TRAVIS_TAG"
+  - "echo Build ID# $TRAVIS_BUILD_ID Branch-Name: $TRAVIS_BRANCH"
+  - "echo Commit#: $TRAVIS_COMMIT"
+  - "echo Commit-message: $TRAVIS_COMMIT_MESSAGE"
+  - "echo Tag-name: $TRAVIS_TAG (If it exist)"
   - "npm i"
   - "npm run build"
   - "npm run test"
   
-#Removing the current folder
+# Removing the current folder uploaded 
+# Needs pip -v 10+ at least
+# Run only if it isn't a tag
 before_deploy:
 # - pip install --upgrade pip
 - |
@@ -35,7 +34,10 @@ before_deploy:
     aws s3 rm --recursive s3://corporate-ui-deploy-test/mmexvr-fork/build/global/branch/$TRAVIS_BRANCH
   fi
  
-#deploy for S3 on AWS
+#Deploy for S3 on AWS for branches and releases
+#Not for PR
+
+#Deploy for branches
 deploy:
   - provider: s3
     access_key_id: "$AWS_KEY_ID"
@@ -49,7 +51,8 @@ deploy:
     on:
       branch: $TRAVIS_BRANCH
       tags: false
-
+      
+#Deploy for releases
   - provider: s3
     access_key_id: "$AWS_KEY_ID"
     secret_access_key: "$AWS_KEY_SECRET"
