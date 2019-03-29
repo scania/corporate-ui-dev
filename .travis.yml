@@ -9,6 +9,7 @@ branches:
  only: 
  -  /^deploy-.*$/
  - master
+ - /(improvement|bug|feature)\/(:?[\w]*)/
 
 before_script:
   - "echo Build ID# $TRAVIS_BUILD_ID Branch-Name: $TRAVIS_BRANCH"
