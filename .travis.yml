@@ -12,13 +12,12 @@ branches:
 
 before_script:
   - "echo Build ID# $TRAVIS_BUILD_ID Branch-Name: $TRAVIS_BRANCH"
-  - "echo Commit#: $TRAVIS_COMMIT \n \ 
-      Commit-message: $TRAVIS_COMMIT_MESSAGE"
+  - "echo Commit#: $TRAVIS_COMMIT Commit-message: $TRAVIS_COMMIT_MESSAGE"
   - "echo Tag-name: $TRAVIS_TAG If it exist"
+   - "npm i"
 
 # NPM setup for building dist
 script:
-  - "npm i"
   - "npm run build"
   - "echo Testing"
   - "npm run test"
