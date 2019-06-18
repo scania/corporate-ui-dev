@@ -45,7 +45,6 @@ c-navigation {
   overflow: hidden;
   background-color: inherit;
   z-index: 1;
-  border-bottom: 1px solid #e2e2e2;
 
   .navbar-brand {
     padding: 13px;
@@ -101,7 +100,6 @@ c-navigation {
 .navbar-symbol {
   padding: 13px;
   border-left: 1px solid #e2e2e2;
-  border-bottom: 1px solid #e2e2e2;
   background-color: inherit;
   z-index: 1;
 
@@ -120,6 +118,7 @@ c-navigation {
   border-width: 0 1px 0 0;
   border-color: #e2e2e2;
   padding: 13px;
+  height: 100%;
 
   &-icon {
     // This make the icon the same size as the logotype, making it easier to handle the parent element padding needed
@@ -143,7 +142,6 @@ c-navigation {
   .navbar-default {
     padding: 19px 11px 10px;
     margin-right: 20px;
-    border-bottom: 0;
 
     .navbar-brand {
       margin-left: 6px;

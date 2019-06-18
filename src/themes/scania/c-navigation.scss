@@ -10,8 +10,6 @@ $link-decoration-hover: none;
   color: var(--link-color);
   padding: 10px 25px;
   text-decoration: none;
-}
-%nav-item-separator {
   border-top: 1px solid #e2e2e2;
 }
 // Sass compiler renders :hover and :before differently
@@ -58,10 +56,8 @@ $link-decoration-hover: none;
   @extend %nav-item;
 }
 ::slotted(div) {
+  border-top: 1px solid #e2e2e2;
   padding: 10px 25px;
-}
-::slotted(a:not(:first-child)) {
-  @extend %nav-item-separator;
 }
 // Due to browsers not supporting: ::slotted(a):hover
 // we need to have the hover separated instead of nested
@@ -98,10 +94,6 @@ ul {
         position: relative;
         background-color: #f5f5f5;
       }
-
-      + .nav-item {
-        @extend %nav-item-separator;
-      }
     }
     .caption {
       display: none;
@@ -120,10 +112,6 @@ ul {
     display: block;
     max-height: 0;
   }
-
-  + .navbar-collapse {
-    border-top: 1px solid #e2e2e2;
-  }
 }
 .sub-navigation {
   overflow: hidden;
@@ -134,6 +122,7 @@ ul {
 
   %nav-item-desktop {
     padding: 20px 0;
+    border-top: 0;
 
     &:before,
     &:after {
@@ -161,9 +150,6 @@ ul {
       bottom: 12px;
       margin-bottom: -4px;
     }
-  }
-  %nav-item-separator-desktop {
-    border-top: none;
   }
   %nav-item-separator-desktop-before {
     border-left: 1px solid #e2e2e2;
@@ -235,16 +221,15 @@ ul {
     @extend %nav-item-desktop;
 
     display: flex;
+    border-top:0;
   }
   ::slotted(a:not(:first-child)) {
-    @extend %nav-item-separator-desktop;
 
     &:before {
       @extend %nav-item-separator-desktop-before;
     }
   }
   ::slotted(div:not(:first-child)) {
-    @extend %nav-item-separator-desktop;
 
     &:before {
       @extend %nav-item-separator-desktop-before;
@@ -269,7 +254,6 @@ ul {
         border-top: 0;
 
         + .nav-item {
-          @extend %nav-item-separator-desktop;
 
           &:before {
             @extend %nav-item-separator-desktop-before;
@@ -279,10 +263,6 @@ ul {
     }
     .navbar-collapse {
       max-height: none;
-
-      + .navbar-collapse {
-        border-top: 0;
-      }
     }
   }
 }
